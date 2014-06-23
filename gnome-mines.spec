@@ -21,7 +21,7 @@ BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.26.0
 Requires:	glib2 >= 1:2.36.0
-Requires:	gtk+3 >= 3.4.0
+Requires:	gtk+3 >= 3.10.0
 Requires:	hicolor-icon-theme
 Requires:	librsvg >= 2.32.0
 Provides:	gnome-games-gnomine = 1:%{version}-%{release}
@@ -74,5 +74,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.gnome.mines.gschema.xml
 %{_datadir}/gnome-mines
 %{_desktopdir}/gnome-mines.desktop
-%{_iconsdir}/hicolor/*/*/*.png
+%{_iconsdir}/hicolor/*/apps/gnome-mines.png
 %{_mandir}/man6/gnome-mines.6*
