@@ -1,29 +1,29 @@
 Summary:	GNOME Mines
 Summary(pl.UTF-8):	Miny dla GNOME
 Name:		gnome-mines
-Version:	3.12.2
+Version:	3.16.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-mines/3.12/%{name}-%{version}.tar.xz
-# Source0-md5:	341423c9075fd75f9466b7ba8f0e4b89
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-mines/3.16/%{name}-%{version}.tar.xz
+# Source0-md5:	1ae482efccb602e0c713a394da8294e1
 URL:		https://wiki.gnome.org/Apps/Mines
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
-BuildRequires:	glib2-devel >= 1:2.36.0
+BuildRequires:	glib2-devel >= 1:2.40.0
 BuildRequires:	gnome-common
-BuildRequires:	gtk+3-devel >= 3.10.0
+BuildRequires:	gtk+3-devel >= 3.12.0
 BuildRequires:	intltool >= 0.50.0
-BuildRequires:	librsvg-devel >= 2.32.0
+BuildRequires:	librsvg-devel >= 1:2.32.0
 BuildRequires:	pkgconfig
-BuildRequires:	vala >= 2:0.22.0
+BuildRequires:	vala >= 2:0.24.0
 BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.26.0
-Requires:	glib2 >= 1:2.36.0
-Requires:	gtk+3 >= 3.10.0
+Requires:	glib2 >= 1:2.40.0
+Requires:	gtk+3 >= 3.12.0
 Requires:	hicolor-icon-theme
-Requires:	librsvg >= 2.32.0
+Requires:	librsvg >= 1:2.32.0
 Provides:	gnome-games-gnomine = 1:%{version}-%{release}
 Obsoletes:	gnome-games-gnomine < 1:3.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -75,4 +75,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gnome-mines
 %{_desktopdir}/gnome-mines.desktop
 %{_iconsdir}/hicolor/*/apps/gnome-mines.png
+%{_iconsdir}/hicolor/*/*/*.svg
 %{_mandir}/man6/gnome-mines.6*
