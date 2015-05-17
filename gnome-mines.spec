@@ -8,6 +8,7 @@ Group:		X11/Applications/Games
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-mines/3.16/%{name}-%{version}.tar.xz
 # Source0-md5:	1ae482efccb602e0c713a394da8294e1
 URL:		https://wiki.gnome.org/Apps/Mines
+BuildRequires:	appstream-glib-devel
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	glib2-devel >= 1:2.40.0
@@ -19,7 +20,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	vala >= 2:0.24.0
 BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
-Requires(post,postun):	glib2 >= 1:2.26.0
+Requires(post,postun):	glib2 >= 1:2.40.0
 Requires:	glib2 >= 1:2.40.0
 Requires:	gtk+3 >= 3.12.0
 Requires:	hicolor-icon-theme
@@ -74,6 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.gnome.mines.gschema.xml
 %{_datadir}/gnome-mines
 %{_desktopdir}/gnome-mines.desktop
-%{_iconsdir}/hicolor/*/apps/gnome-mines.png
-%{_iconsdir}/hicolor/*/*/*.svg
+%{_iconsdir}/hicolor/16x16/actions/flag-symbolic.svg
+%{_iconsdir}/hicolor/*x*/apps/gnome-mines.png
+%{_iconsdir}/hicolor/scalable/apps/gnome-mines-symbolic.svg
 %{_mandir}/man6/gnome-mines.6*
