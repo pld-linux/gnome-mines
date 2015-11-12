@@ -1,12 +1,12 @@
 Summary:	GNOME Mines
 Summary(pl.UTF-8):	Miny dla GNOME
 Name:		gnome-mines
-Version:	3.18.1
+Version:	3.18.2
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Games
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-mines/3.18/%{name}-%{version}.tar.xz
-# Source0-md5:	8940712c48a99cf4876eb2ddc450ee23
+# Source0-md5:	9fdd48f5578d01484fe394035340338e
 URL:		https://wiki.gnome.org/Apps/Mines
 BuildRequires:	appstream-glib-devel
 BuildRequires:	autoconf >= 2.63
