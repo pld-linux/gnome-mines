@@ -1,24 +1,28 @@
 Summary:	GNOME Mines
 Summary(pl.UTF-8):	Miny dla GNOME
 Name:		gnome-mines
-Version:	3.24.0
-Release:	2
-License:	GPL v2
+Version:	3.34.0
+Release:	1
+License:	GPL v3+
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-mines/3.24/%{name}-%{version}.tar.xz
-# Source0-md5:	a18218e32de9254f4946366300dced02
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-mines/3.34/%{name}-%{version}.tar.xz
+# Source0-md5:	ba49709b31af16f3253d9f96b5d74fcd
 URL:		https://wiki.gnome.org/Apps/Mines
-BuildRequires:	appstream-glib-devel
-BuildRequires:	autoconf >= 2.63
-BuildRequires:	automake >= 1:1.11
+BuildRequires:	appstream-glib
 BuildRequires:	glib2-devel >= 1:2.40.0
-BuildRequires:	gnome-common
 BuildRequires:	gtk+3-devel >= 3.12.0
-BuildRequires:	intltool >= 0.50.0
-BuildRequires:	libgnome-games-support-devel
+BuildRequires:	libgee-devel >= 0.8
+BuildRequires:	libgnome-games-support-devel >= 1
 BuildRequires:	librsvg-devel >= 1:2.32.0
+BuildRequires:	meson >= 0.37.0
+BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	vala >= 2:0.24.0
+BuildRequires:	vala-libgee >= 0.8
+BuildRequires:	vala-librsvg >= 1:2.32.0
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.40.0
@@ -31,29 +35,26 @@ Obsoletes:	gnome-games-gnomine < 1:3.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Clear mines from a minefield.
+Mines (previously gnomine) is a puzzle game where you locate mines
+floating in an ocean using only your brain and a little bit of luck.
 
 %description -l pl.UTF-8
-Gra, której celem jest rozminowanie pola minowego.
+Mines (dawniej gnomine) to układanka, w której należy zlokalizować
+przywające w oceanie miny, korzystając z własnego mózgu oraz odrobiny
+szczęścia.
 
 %prep
 %setup -q
 
 %build
-%{__intltoolize}
-%{__aclocal}
-%{__autoconf}
-%{__automake}
-%configure \
-	--disable-silent-rules
+%meson build
 
-%{__make}
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 %find_lang %{name} --with-gnome
 
@@ -70,13 +71,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc NEWS
+%doc NEWS README.md
 %attr(755,root,root) %{_bindir}/gnome-mines
-%{_datadir}/appdata/gnome-mines.appdata.xml
-%{_datadir}/glib-2.0/schemas/org.gnome.mines.gschema.xml
+%{_datadir}/glib-2.0/schemas/org.gnome.Mines.gschema.xml
 %{_datadir}/gnome-mines
-%{_desktopdir}/gnome-mines.desktop
-%{_iconsdir}/hicolor/16x16/actions/flag-symbolic.svg
-%{_iconsdir}/hicolor/*x*/apps/gnome-mines.png
-%{_iconsdir}/hicolor/scalable/apps/gnome-mines-symbolic.svg
+%{_datadir}/metainfo/org.gnome.Mines.appdata.xml
+%{_desktopdir}/org.gnome.Mines.desktop
+%{_iconsdir}/hicolor/scalable/apps/org.gnome.Mines.svg
+%{_iconsdir}/hicolor/symbolic/apps/org.gnome.Mines-symbolic.svg
 %{_mandir}/man6/gnome-mines.6*
