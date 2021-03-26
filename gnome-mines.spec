@@ -1,18 +1,18 @@
 Summary:	GNOME Mines
 Summary(pl.UTF-8):	Miny dla GNOME
 Name:		gnome-mines
-Version:	3.36.1
+Version:	40.0
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-mines/3.36/%{name}-%{version}.tar.xz
-# Source0-md5:	adc584283ab827204853fee5850fb93d
+Source0:	https://download.gnome.org/sources/gnome-mines/40/%{name}-%{version}.tar.xz
+# Source0-md5:	569b2b3c4d41fb122ec2f1958d9ded01
 URL:		https://wiki.gnome.org/Apps/Mines
 BuildRequires:	appstream-glib
 BuildRequires:	glib2-devel >= 1:2.40.0
-BuildRequires:	gtk+3-devel >= 3.12.0
+BuildRequires:	gtk+3-devel >= 3.24
 BuildRequires:	libgee-devel >= 0.8
-BuildRequires:	libgnome-games-support-devel >= 1
+BuildRequires:	libgnome-games-support-devel >= 1.7.1
 BuildRequires:	librsvg-devel >= 1:2.32.0
 BuildRequires:	meson >= 0.37.1
 BuildRequires:	ninja >= 1.5
@@ -27,8 +27,9 @@ BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.40.0
 Requires:	glib2 >= 1:2.40.0
-Requires:	gtk+3 >= 3.12.0
+Requires:	gtk+3 >= 3.24
 Requires:	hicolor-icon-theme
+Requires:	libgnome-games-support >= 1.7.1
 Requires:	librsvg >= 1:2.32.0
 Provides:	gnome-games-gnomine = 1:%{version}-%{release}
 Obsoletes:	gnome-games-gnomine < 1:3.8.0
