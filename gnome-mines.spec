@@ -2,7 +2,7 @@ Summary:	GNOME Mines
 Summary(pl.UTF-8):	Miny dla GNOME
 Name:		gnome-mines
 Version:	40.0
-Release:	2
+Release:	3
 License:	GPL v3+
 Group:		X11/Applications/Games
 Source0:	https://download.gnome.org/sources/gnome-mines/40/%{name}-%{version}.tar.xz
@@ -20,6 +20,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	vala >= 2:0.24.0
 BuildRequires:	vala-libgee >= 0.8
+BuildRequires:	vala-libgnome-games-support
 BuildRequires:	vala-librsvg >= 1:2.32.0
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
