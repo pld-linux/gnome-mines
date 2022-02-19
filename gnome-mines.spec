@@ -1,12 +1,12 @@
 Summary:	GNOME Mines
 Summary(pl.UTF-8):	Miny dla GNOME
 Name:		gnome-mines
-Version:	40.0
-Release:	3
+Version:	40.1
+Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Games
 Source0:	https://download.gnome.org/sources/gnome-mines/40/%{name}-%{version}.tar.xz
-# Source0-md5:	569b2b3c4d41fb122ec2f1958d9ded01
+# Source0-md5:	e97ed3fd975048f70c1e7a38b1932046
 URL:		https://wiki.gnome.org/Apps/Mines
 BuildRequires:	appstream-glib
 BuildRequires:	glib2-devel >= 1:2.40.0
