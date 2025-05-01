@@ -1,26 +1,28 @@
 Summary:	GNOME Mines
 Summary(pl.UTF-8):	Miny dla GNOME
 Name:		gnome-mines
-Version:	40.1
+Version:	48.1
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Games
-Source0:	https://download.gnome.org/sources/gnome-mines/40/%{name}-%{version}.tar.xz
-# Source0-md5:	e97ed3fd975048f70c1e7a38b1932046
+Source0:	https://download.gnome.org/sources/gnome-mines/48/%{name}-%{version}.tar.xz
+# Source0-md5:	e3c756596259fe124d074f1e2cc06b38
 URL:		https://wiki.gnome.org/Apps/Mines
 BuildRequires:	appstream-glib
 BuildRequires:	glib2-devel >= 1:2.40.0
-BuildRequires:	gtk+3-devel >= 3.24
+BuildRequires:	gtk4-devel >= 4.6
+BuildRequires:	libadwaita-devel >= 1.0
 BuildRequires:	libgee-devel >= 0.8
-BuildRequires:	libgnome-games-support-devel >= 1.7.1
+BuildRequires:	libgnome-games-support2-devel >= 2.0.0
 BuildRequires:	librsvg-devel >= 1:2.32.0
-BuildRequires:	meson >= 0.37.1
+BuildRequires:	meson >= 0.59.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	vala >= 2:0.24.0
+BuildRequires:	vala-libadwaita >= 1.0
 BuildRequires:	vala-libgee >= 0.8
-BuildRequires:	vala-libgnome-games-support
+BuildRequires:	vala-libgnome-games-support2 >= 2.0.0
 BuildRequires:	vala-librsvg >= 1:2.32.0
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -28,9 +30,10 @@ BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.40.0
 Requires:	glib2 >= 1:2.40.0
-Requires:	gtk+3 >= 3.24
+Requires:	gtk4 >= 4.6
 Requires:	hicolor-icon-theme
-Requires:	libgnome-games-support >= 1.7.1
+Requires:	libadwaita >= 1.0
+Requires:	libgnome-games-support2 >= 2.0.0
 Requires:	librsvg >= 1:2.32.0
 Provides:	gnome-games-gnomine = 1:%{version}-%{release}
 Obsoletes:	gnome-games-gnomine < 1:3.8.0
@@ -49,14 +52,14 @@ szczęścia.
 %setup -q
 
 %build
-%meson build
+%meson
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -C build
+%meson_install
 
 %find_lang %{name} --with-gnome
 
@@ -75,9 +78,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc NEWS README.md
 %attr(755,root,root) %{_bindir}/gnome-mines
+%{_datadir}/dbus-1/services/org.gnome.Mines.service
 %{_datadir}/glib-2.0/schemas/org.gnome.Mines.gschema.xml
 %{_datadir}/gnome-mines
-%{_datadir}/metainfo/org.gnome.Mines.appdata.xml
+%{_datadir}/metainfo/org.gnome.Mines.metainfo.xml
 %{_desktopdir}/org.gnome.Mines.desktop
 %{_iconsdir}/hicolor/scalable/apps/org.gnome.Mines.svg
 %{_iconsdir}/hicolor/symbolic/apps/org.gnome.Mines-symbolic.svg
